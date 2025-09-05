@@ -13,7 +13,7 @@ class BountyTask:
     async def log(self, level: str, message: str, **kwargs):
         """Helper method to log messages"""
         if self.logger_func:
-            await self.logger_func(level, message, self.job_id, **kwargs)
+            self.logger_func(level, message, self.job_id, **kwargs)
     
     async def get_file_content(self, submission: SubmissionData):
         """Get file content directly from submission data"""
