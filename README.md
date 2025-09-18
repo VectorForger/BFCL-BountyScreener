@@ -1,4 +1,4 @@
-# BountyScreener — Quick Start
+# BFCL BountyScreener — Setup
 
 Run a minimal **Submission Scorer** for the Berkeley Function‑Calling Leaderboard (BFCL). This service:
 - Watches for submissions
@@ -6,7 +6,7 @@ Run a minimal **Submission Scorer** for the Berkeley Function‑Calling Leaderbo
 - Runs BFCL scoring inside a controlled venv
 - Reports results to your watcher
 
-The layout is **opinionated** and now driven by a small `.env`. Users only set:
+The functionality / configuration is driven by a `.env`. Users primarily set:
 - Where they cloned **this** repo (Bounty Hunter / BountyScreener)
 - Where they cloned **BFCL** (inside Gorilla)
 - **GPU** settings (device index, num GPUs, utilization)
@@ -98,7 +98,7 @@ Edit `.env` and set the following **required** values:
 
 ---
 
-## 5) Run locally
+## 5) Run locally (quick test)
 
 ```bash
 # terminal 1
