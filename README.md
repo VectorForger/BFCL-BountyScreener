@@ -115,7 +115,7 @@ curl http://127.0.0.1:8999/health
 
 ---
 
-## 6) (Optional) Run under pm2
+## 6) Run under pm2
 
 ```bash
 npm install -g pm2
@@ -157,49 +157,4 @@ curl -X POST http://127.0.0.1:8999/score   -H "Content-Type: application/json"  
 - **Timeouts**: `SCORING_TIMEOUT` controls subprocess max runtime (seconds).
 
 ---
-
-## 9) Quick checklist
-- [ ] Cloned **BFCL-BountyScreener** and **gorilla**
-- [ ] Created venv at `$BOUNTY_HUNTER_DIR/.v4env` and activated it
-- [ ] Installed deps in both repos
-- [ ] Filled `.env` with: directories, GPU, validator, wallets, watcher/auth
-- [ ] `python3 main.py` runs and `/health` returns OK
-- [ ] Can POST to `/score` with a HF model URL
-
----
-
-## 10) Example `.env` (edit and use)
-
-See `.env.example` in this repo. Core lines are:
-
-```dotenv
-# Where you cloned things
-BOUNTY_HUNTER_DIR=~/BFCL
-BFCL_ROOT=~/BFCL/gorilla/berkeley-function-call-leaderboard
-
-# GPU / BFCL runtime knobs
-CUDA_VISIBLE_DEVICES=2
-CUDA_DEVICE_ORDER=PCI_BUS_ID
-BFCL_NUM_GPUS=1
-BFCL_GPU_UTIL=0.9
-
-# Identity / wallets / watcher
-VALIDATOR_NAME=Rizzo
-COLDKEY=integration_testing
-HOTKEY=tester
-
-MAX_CONCURRENT_TASKS=1
-WATCHER_HOST=192.168.69.194:8994
-SCREENER_ID=${VALIDATOR_NAME}BFCL
-SCREENER_NAME=${VALIDATOR_NAME}BFCL
-SCREENER_API_URL=http://192.168.69.157:8999
-SCREENER_SUPPORTED_BOUNTY_IDS=BFCLV4
-
-AUTH_ENABLED=true
-SCORER_AUTH_ENABLED=true
-SCORER_ALLOWED_HOTKEYS=5CXRfP2ekFhe62r7q3vppRajJmGhTi7vwvb2yr79jveZ282w
-ALLOWED_HOTKEYS=5CXRfP2ekFhe62r7q3vppRajJmGhTi7vwvb2yr79jveZ282w
-
-AUTH_SIGNATURE_TIMEOUT=300
-SCORING_TIMEOUT=7200
 ```
